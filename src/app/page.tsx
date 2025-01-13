@@ -1,101 +1,199 @@
-import Image from "next/image";
+"use client"
 
-export default function Home() {
+import { motion } from "framer-motion"
+import Link from "next/link"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+import { ArrowRight, Code2, FileText, User2, Mail } from 'lucide-react'
+import { useState } from 'react'
+import LandingPage from '@/components/landing-page'
+import { Navbar } from '@/components/navbar'
+import { ParticleBackground } from '@/components/particle-background'
+import { articles } from '@/data/articles'
+import { projects } from '@/data/projects'
+
+const skills = [
+  "Linux",
+  "Bash",
+  "Docker",
+  "Kubernetes",
+  "Git",
+  "Python",
+  "Rust",
+  "React",
+  "Terraform",
+  "Ansible",
+]
+
+export default function MainPage() {
+  const [showLandingPage, setShowLandingPage] = useState(true)
+
+  if (showLandingPage) {
+    return <LandingPage onEnter={() => setShowLandingPage(false)} />
+  }
+
+  // Get the latest project and article
+  const featuredProject = projects[0]
+  const featuredArticle = articles[0]
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="min-h-screen w-screen font-mono">
+      <Navbar />
+      <ParticleBackground />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      <div className="container py-8">
+        <div className="mx-auto max-w-4xl space-y-16">
+          {/* Hero Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-center space-y-4"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
+              Philip Solarz
+            </h1>
+            <p className="text-xl text-muted-foreground">
+              Platform Engineer • Software Developer • Problem Solver
+            </p>
+          </motion.div>
+
+          {/* About Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
           >
-            Read our docs
-          </a>
+            <Card>
+              <CardHeader>
+                <CardTitle>About Me</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="text-muted-foreground">
+                  Platform Engineer and Software Developer with over 5 years of experience specializing in cloud infrastructure,
+                  DevOps practices, and full-stack development. Passionate about building scalable solutions and solving complex
+                  technical challenges.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {skills.map((skill) => (
+                    <Badge key={skill} variant="secondary">
+                      {skill}
+                    </Badge>
+                  ))}
+                </div>
+              </CardContent>
+              <CardFooter>
+                <Button variant="outline" className="gap-2" asChild>
+                  <Link href="/profile">
+                    View Full Profile <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </Button>
+              </CardFooter>
+            </Card>
+          </motion.div>
+
+          {/* Featured Project */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <Card>
+              <CardHeader>
+                <CardTitle>Featured Project</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <h3 className="text-xl font-semibold">{featuredProject.title}</h3>
+                <p className="text-muted-foreground">
+                  {featuredProject.description}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {featuredProject.tags.map((tag) => (
+                    <Badge key={tag} variant="secondary">
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+              </CardContent>
+              <CardFooter>
+                <Button variant="outline" className="gap-2" asChild>
+                  <Link href="/projects">
+                    View All Projects <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </Button>
+              </CardFooter>
+            </Card>
+          </motion.div>
+
+          {/* Featured Article */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            <Card>
+              <CardHeader>
+                <CardTitle>Featured Article</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <h3 className="text-xl font-semibold">{featuredArticle.title}</h3>
+                <p className="text-muted-foreground">
+                  {featuredArticle.excerpt}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {featuredArticle.tags.map((tag) => (
+                    <Badge key={tag} variant="secondary">
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+              </CardContent>
+              <CardFooter>
+                <Button variant="outline" className="gap-2" asChild>
+                  <Link href="/articles">
+                    Read All Articles <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </Button>
+              </CardFooter>
+            </Card>
+          </motion.div>
+
+          {/* Quick Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"
+          >
+            <Button variant="outline" size="lg" className="h-20" asChild>
+              <Link href="/profile" className="flex flex-col items-center gap-2">
+                <User2 className="h-5 w-5" />
+                <span>Profile</span>
+              </Link>
+            </Button>
+            <Button variant="outline" size="lg" className="h-20" asChild>
+              <Link href="/projects" className="flex flex-col items-center gap-2">
+                <Code2 className="h-5 w-5" />
+                <span>Projects</span>
+              </Link>
+            </Button>
+            <Button variant="outline" size="lg" className="h-20" asChild>
+              <Link href="/articles" className="flex flex-col items-center gap-2">
+                <FileText className="h-5 w-5" />
+                <span>Articles</span>
+              </Link>
+            </Button>
+            <Button variant="outline" size="lg" className="h-20" asChild>
+              <Link href="/contact" className="flex flex-col items-center gap-2">
+                <Mail className="h-5 w-5" />
+                <span>Contact</span>
+              </Link>
+            </Button>
+          </motion.div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
     </div>
-  );
+  )
 }
+

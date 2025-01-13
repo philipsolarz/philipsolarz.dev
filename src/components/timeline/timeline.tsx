@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { motion, HTMLMotionProps } from 'framer-motion';
 import { AlertCircle, Loader2 } from 'lucide-react';
-import type { TimelineColor } from '@/types';
+// import type { TimelineColor } from '@/types';
 
 const timelineVariants = cva('flex flex-col relative', {
   variants: {
@@ -28,7 +28,7 @@ const timelineVariants = cva('flex flex-col relative', {
  */
 interface TimelineProps
   extends React.HTMLAttributes<HTMLOListElement>,
-    VariantProps<typeof timelineVariants> {
+  VariantProps<typeof timelineVariants> {
   /** Size of the timeline icons */
   iconsize?: 'sm' | 'md' | 'lg';
 }
@@ -91,11 +91,11 @@ interface TimelineItemProps extends Omit<HTMLMotionProps<'li'>, 'ref'> {
   /** Custom icon element */
   icon?: React.ReactNode;
   /** Color theme for the icon */
-  iconColor?: TimelineColor;
+  // iconColor?: TimelineColor;
   /** Current status of the item */
   status?: 'completed' | 'in-progress' | 'pending';
   /** Color theme for the connector line */
-  connectorColor?: TimelineColor;
+  // connectorColor?: TimelineColor;
   /** Whether to show the connector line */
   showConnector?: boolean;
   /** Size of the icon */
@@ -114,9 +114,9 @@ const TimelineItem = React.forwardRef<HTMLLIElement, TimelineItemProps>(
       title,
       description,
       icon,
-      iconColor,
+      // iconColor,
       status = 'completed',
-      connectorColor,
+      // connectorColor,
       showConnector = true,
       iconsize,
       loading,
@@ -218,7 +218,10 @@ const TimelineItem = React.forwardRef<HTMLLIElement, TimelineItemProps>(
         {/* Timeline dot and connector */}
         <div className="flex flex-col items-center">
           <div className="relative z-10">
-            <TimelineIcon icon={icon} color={iconColor} status={status} iconSize={iconsize} />
+            <TimelineIcon
+              icon={icon}
+              // color={iconColor} 
+              status={status} iconSize={iconsize} />
           </div>
           {showConnector && (
             <div className="h-16 w-0.5 bg-border mt-2" />

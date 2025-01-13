@@ -1,24 +1,31 @@
 'use client'
-// import { notFound } from "next/navigation"
-// import ReactMarkdown from 'react-markdown'
-// import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-// import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism'
-// import { Badge } from "@/components/ui/badge"
-// import { Button } from "@/components/ui/button"
-// import { Card, CardContent } from "@/components/ui/card"
-// import { CalendarDays, Clock, ArrowLeft } from 'lucide-react'
+import { notFound } from "next/navigation"
+import ReactMarkdown from 'react-markdown'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism'
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { CalendarDays, Clock, ArrowLeft } from 'lucide-react'
 import { articles } from "@/data/articles"
-// import Link from "next/link"
-// import { Navbar } from "@/components/navbar"
-// import { ParticleBackground } from "@/components/particle-background"
-// import { CommentForm } from "@/components/comment-form"
+import Link from "next/link"
+import { Navbar } from "@/components/navbar"
+import { ParticleBackground } from "@/components/particle-background"
+import { CommentForm } from "@/components/comment-form"
 
-export default function ArticlePage({ params }: { params: { id: string } }) {
-    const article = articles.find((p) => p.id === params.id)
+type Params = Promise<{ slug: string }>;
+
+export default async function ArticlePage({ params }: { params: Params }) {
+    const { slug } = await params;
+    const article = articles.find((p) => p.id === slug)
+
+    if (!article) {
+        notFound()
+    }
 
     return (
         <div className="min-h-screen w-screen font-mono">
-            {/* <Navbar />
+            <Navbar />
             <ParticleBackground />
 
             <div className="container py-8">
@@ -58,7 +65,7 @@ export default function ArticlePage({ params }: { params: { id: string } }) {
 
                         <Card>
                             <CardContent className="prose prose-invert pt-6">
-                                <ReactMarkdown
+                                {/* <ReactMarkdown
                                     components={{
                                         code({ node, inline, className, children, ...props }) {
                                             const match = /language-(\w+)/.exec(className || '')
@@ -80,15 +87,14 @@ export default function ArticlePage({ params }: { params: { id: string } }) {
                                     }}
                                 >
                                     {article.content}
-                                </ReactMarkdown>
+                                </ReactMarkdown> */}
                             </CardContent>
-                        </Card> */}
+                        </Card>
 
-            {/* <CommentForm /> */}
-            {/* </article>
+                        <CommentForm />
+                    </article>
                 </div >
-            </div > */}
+            </div >
         </div >
     )
 }
-

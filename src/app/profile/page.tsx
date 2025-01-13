@@ -217,7 +217,7 @@ export default function ProfilePage() {
                                                 title={entry.title}
                                                 description={entry.description}
                                                 icon={entry.icon}
-                                                iconColor={selectedEntry.id === entry.id ? "primary" : "muted"}
+                                                // iconColor={selectedEntry.id === entry.id ? "primary" : "muted"}
                                                 className={`cursor-pointer transition-colors hover:bg-muted/50 p-2 rounded-md ${selectedEntry.id === entry.id ? "bg-muted" : ""
                                                     }`}
                                                 onClick={() => setSelectedEntry(entry)}

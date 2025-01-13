@@ -244,7 +244,7 @@ export default function ProfilePage() {
     const [selectedEntry, setSelectedEntry] = useState<TimelineEntry>(timelineEntries[0])
 
     return (
-        <div className="min-h-screen w-screen font-mono">
+        <div className="min-h-screen font-mono">
             <Navbar />
             <ParticleBackground />
 
@@ -262,7 +262,7 @@ export default function ProfilePage() {
                             </CardHeader>
                             <CardContent className="space-y-6 text-sm leading-relaxed">
                                 <p>
-                                    Philip Solarz is an analyst, developer and engineer experience in Linux systems, containerization, Kubernetes, and programming, particularly in Rust and Python.
+                                    Philip Solarz is an analyst, developer and engineer experienced in Linux systems, containerization, Kubernetes, and programming, particularly in Rust and Python.
                                     With a Bachelor's degree in Applied Mathematics from Linnaeus University, he combines analytical knowledge with technical expertise to deliver practical solutions in DevOps, Platform Engineering, Software Development, and Data Engineering.
                                     Philip has worked in both independent and team settings, with a preference for roles focused on technical problem-solving and infrastructure development.
                                 </p>
@@ -390,7 +390,7 @@ export default function ProfilePage() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.2 }}
                         >
-                            <Card className="h-full">
+                            <Card className="h-full opacity-75">
                                 <CardHeader>
                                     <CardTitle>History</CardTitle>
                                 </CardHeader>
@@ -421,7 +421,7 @@ export default function ProfilePage() {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.3 }}
                         >
-                            <Card className="h-full">
+                            <Card className="h-full opacity-75">
                                 <CardHeader>
                                     <CardTitle className="flex items-center gap-2">
                                         {selectedEntry.icon}
@@ -475,7 +475,7 @@ export default function ProfilePage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.4 }}
                     >
-                        <Card>
+                        <Card className="opacity-75">
                             <CardHeader>
                                 <CardTitle>Skills</CardTitle>
                             </CardHeader>

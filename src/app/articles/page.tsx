@@ -15,7 +15,7 @@ export default function ArticlesPage() {
             <Navbar />
             <ParticleBackground />
 
-            <div className="container py-8">
+            <div className="py-8">
                 <div className="mx-auto max-w-6xl space-y-8">
                     <motion.h1
                         className="text-4xl font-bold"
@@ -35,7 +35,7 @@ export default function ArticlesPage() {
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                             >
                                 <Link href={`/articles/${article.id}`}>
-                                    <Card className="h-full hover:bg-muted/50 transition-colors">
+                                    <Card className="h-full hover:bg-muted/50 transition-colors opacity-75">
                                         <CardHeader>
                                             <CardTitle>{article.title}</CardTitle>
                                         </CardHeader>

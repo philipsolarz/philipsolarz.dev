@@ -246,7 +246,7 @@ export default function ProfilePage() {
     return (
         <div className="min-h-screen font-mono">
             <Navbar />
-            <ParticleBackground />
+            {/* <ParticleBackground /> */}
 
             <div className="py-8 px-8">
                 <div className="space-y-8">
@@ -256,7 +256,7 @@ export default function ProfilePage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5 }}
                     >
-                        <Card className="max-w-4xl mx-auto opacity-75">
+                        <Card className="max-w-4xl mx-auto bg-background">
                             <CardHeader>
                                 <CardTitle className="text-2xl font-semibold">Profile</CardTitle>
                             </CardHeader>
@@ -390,7 +390,7 @@ export default function ProfilePage() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: 0.2 }}
                         >
-                            <Card className="h-full opacity-75">
+                            <Card className="h-full bg-background">
                                 <CardHeader>
                                     <CardTitle>History</CardTitle>
                                 </CardHeader>
@@ -421,7 +421,7 @@ export default function ProfilePage() {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.3 }}
                         >
-                            <Card className="h-full opacity-75">
+                            <Card className="h-full bg-background">
                                 <CardHeader>
                                     <CardTitle className="flex items-center gap-2">
                                         {selectedEntry.icon}

@@ -13,7 +13,7 @@ export default function ArticlesPage() {
     return (
         <div className="min-h-screen w-screen font-mono">
             <Navbar />
-            <ParticleBackground />
+            {/* <ParticleBackground /> */}
 
             <div className="py-8">
                 <div className="mx-auto max-w-6xl space-y-8">
@@ -35,13 +35,13 @@ export default function ArticlesPage() {
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                             >
                                 <Link href={`/articles/${article.id}`}>
-                                    <Card className="h-full hover:bg-muted/50 transition-colors opacity-75">
+                                    <Card className="h-full hover:bg-muted/50 transition-colors bg-background">
                                         <CardHeader>
                                             <CardTitle>{article.title}</CardTitle>
                                         </CardHeader>
                                         <CardContent className="space-y-4">
                                             <p className="text-muted-foreground">
-                                                {article.excerpt}
+                                                {article.description}
                                             </p>
                                             <div className="flex flex-wrap gap-2">
                                                 {article.tags.map((tag) => (
@@ -51,16 +51,6 @@ export default function ArticlesPage() {
                                                 ))}
                                             </div>
                                         </CardContent>
-                                        <CardFooter className="flex justify-between text-sm text-muted-foreground">
-                                            <div className="flex items-center gap-2">
-                                                <CalendarDays className="h-4 w-4" />
-                                                <span>{article.date}</span>
-                                            </div>
-                                            <div className="flex items-center gap-2">
-                                                <Clock className="h-4 w-4" />
-                                                <span>{article.readingTime}</span>
-                                            </div>
-                                        </CardFooter>
                                     </Card>
                                 </Link>
                             </motion.div>

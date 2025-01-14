@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ParticleBackground } from "@/components/particle-background";
-import { ThemeToggle } from "@/components/theme-toggle";
 import { ReactTyped } from "react-typed";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -13,7 +12,7 @@ export default function LandingPage() {
 
   return (
     <div className="relative min-h-screen bg-background font-mono h-screen w-screen">
-      <ParticleBackground />
+      {/* <ParticleBackground /> */}
       <main className="relative flex min-h-screen flex-col items-center justify-center p-4 text-center">
         <div className="space-y-6">
           <motion.div

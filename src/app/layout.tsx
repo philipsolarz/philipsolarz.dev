@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { Space_Mono } from 'next/font/google'
-import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css"
+import { ParticleBackground } from "@/components/particle-background"
 
 const spaceMono = Space_Mono({
   subsets: ["latin"],
@@ -22,14 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={spaceMono.variable}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        {children}
+        <ParticleBackground />
+
       </body>
     </html>
   )

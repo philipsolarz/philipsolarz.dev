@@ -11,9 +11,9 @@ export default function ContactPage() {
     return (
         <div className="min-h-screen w-screen font-mono">
             <Navbar />
-            <ParticleBackground />
+            {/* <ParticleBackground /> */}
 
-            <div className="container py-8">
+            <div className="py-8">
                 <div className="mx-auto max-w-2xl space-y-8">
                     <motion.h1
                         className="text-4xl font-bold"
@@ -29,7 +29,7 @@ export default function ContactPage() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.1 }}
                     >
-                        <Card>
+                        <Card className="bg-background">
                             <CardHeader>
                                 <CardTitle>Contact Information</CardTitle>
                             </CardHeader>

@@ -2,12 +2,13 @@ import { Article } from "@/types"
 
 export const articles: Article[] = [
   {
-    id: "1",
-    slug: "leveraging-ai-for-learning-and-productivity",
+    id: "leveraging-ai-for-learning-and-productivity",
     title: "A Developer's Guide to Leveraging AI for Learning and Productivity",
-    excerpt: "Explore how developers can integrate AI tools and LLMs into their workflows to accelerate learning and problem-solving.",
+    description: "Explore how developers can integrate AI tools and LLMs into their workflows to accelerate learning and problem-solving.",
+    tags: ["AI", "Productivity", "Learning", "Development"],
+    links: [{ title: "Read More", url: "/articles/leveraging-ai-for-learning-and-productivity" }],
     content: `
-# A Developer's Guide to Leveraging AI for Learning and Productivity
+## Introduction
 
 In an era where artificial intelligence (AI) is reshaping industries, developers stand to gain significantly by integrating AI tools into their workflows. This article explores practical strategies for using AI to enhance learning and productivity. Whether you're a seasoned coder or just starting, leveraging AI effectively can accelerate your skill development and streamline your technical work.
 
@@ -73,16 +74,14 @@ In an era where artificial intelligence (AI) is reshaping industries, developers
 
 AI offers developers unprecedented opportunities to enhance both learning and productivity. By embracing these tools thoughtfully and strategically, you can unlock new levels of efficiency and innovation in your work. Start small, experiment, and let AI become a valuable partner in your development journey.
     `,
-    author: "Your Name",
     date: "2025-01-13",
-    readingTime: "6 min read",
-    tags: ["AI", "Productivity", "Learning", "Development"]
   },
   {
-    id: "2",
-    slug: "building-postgresql-platform-on-kubernetes",
+    id: "building-postgresql-platform-on-kubernetes",
     title: "Building a PostgreSQL Platform on Kubernetes: A Step-by-Step Guide",
-    excerpt: "Discover the process of designing and implementing a Kubernetes-based PostgreSQL platform, overcoming challenges, and creating a self-service portal using GitOps principles.",
+    description: "Discover the process of designing and implementing a Kubernetes-based PostgreSQL platform, overcoming challenges, and creating a self-service portal using GitOps principles.",
+    tags: ["PostgreSQL", "Kubernetes", "GitOps", "CloudNativePG", "DevOps"],
+    links: [{ title: "Read More", url: "/articles/building-postgresql-platform-on-kubernetes" }],
     content: `
 # Building a PostgreSQL Platform on Kubernetes: A Step-by-Step Guide
 
@@ -160,16 +159,14 @@ Building a PostgreSQL platform on Kubernetes requires careful planning, the righ
 - Links to documentation for CloudNativePG, GitOps tools, and Kubernetes.
 - Suggested tutorials, blogs, and case studies for deeper learning.
     `,
-    author: "Your Name",
-    date: "2025-01-13",
-    readingTime: "8 min read",
-    tags: ["PostgreSQL", "Kubernetes", "GitOps", "CloudNativePG", "DevOps"]
+    date: "2025-01-13"
   },
   {
-    id: "3",
-    slug: "integrating-rust-into-python-workflows",
+    id: "integrating-rust-into-python-workflows",
     title: "Integrating Rust into Python Workflows: The Development of Rustique",
-    excerpt: "Discover how Rustique leverages Rust's performance to complement Python workflows for intensive tasks, utilizing tools like PyO3 to bridge the gap.",
+    description: "Discover how Rustique leverages Rust's performance to complement Python workflows for intensive tasks, utilizing tools like PyO3 to bridge the gap.",
+    tags: ["Rust", "Python", "Performance", "Development", "PyO3"],
+    links: [{ title: "Read More", url: "/articles/integrating-rust-into-python-workflows" }],
     content: `
 # Integrating Rust into Python Workflows: The Development of Rustique
 
@@ -231,10 +228,7 @@ Rustique exemplifies the potential of integrating Rust into Python workflows to 
 
 This is just the beginning—Rust and Python together open new doors for developers looking to optimize their workflows for modern challenges. Dive into Rustique and explore what this integration can do for your projects!
     `,
-    author: "Your Name",
     date: "2025-01-13",
-    readingTime: "7 min read",
-    tags: ["Rust", "Python", "Performance", "Development", "PyO3"]
   }
 ]
 

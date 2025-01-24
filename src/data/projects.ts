@@ -2,6 +2,83 @@ import { Project } from "@/types"
 
 export const projects: Project[] = [
   {
+    id: "k3s-cluster-hetzner",
+    title: "K3s Cluster on Hetzner Cloud with Terraform and ArgoCD",
+    description: "A Kubernetes cluster deployed on Hetzner Cloud using K3s, Terraform, and ArgoCD to demonstrate Infrastructure as Code (IaC) and GitOps principles.",
+    tags: ["Kubernetes", "K3s", "Terraform", "ArgoCD", "GitOps", "Ansible", "Hetzner"],
+    links: [
+      {
+        title: "GitHub Repository",
+        url: "https://github.com/philipsolarz/k3s-cluster"
+      }
+    ],
+    content: `
+## Overview
+**K3s Cluster on Hetzner Cloud** is an experimental and learning-oriented Kubernetes cluster deployed using **Terraform**, **ArgoCD**, and **Ansible**, showcasing modern Infrastructure as Code (IaC) and GitOps practices. The cluster is designed to host web applications and evolve with additional components over time.
+
+## Infrastructure Details
+- **Cloud Provider**: Hetzner Cloud
+- **Kubernetes Distribution**: K3s (lightweight Kubernetes)
+- **Node Configuration**:
+  - 1 server node
+  - 1 agent node
+- **Networking**:
+  - Hetzner floating IP for external access
+  - MetalLB for internal load balancing
+  - Ingress-Nginx as the load balancer
+- **Security**:
+  - Managed via SSH keys (admin and ansible)
+  - ArgoCD with automated syncing and namespace creation
+
+## Deployment Workflow
+Infrastructure is managed with Terraform and consists of:
+1. **Network Setup**: Virtual network and subnet creation.
+2. **Server Provisioning**: Server and agent nodes created using Terraform modules.
+3. **Cluster Setup**:
+   - K3s installed via cloud-init.
+   - Kubernetes API endpoint configured.
+   - Fetching and adjusting kubeconfig for local access.
+4. **Application Deployment**: Using ArgoCD's App of Apps pattern.
+
+## ArgoCD Application Structure
+The project follows a monorepo approach with a structured directory:
+\`\`\`
+k8s/
+│-- modules/
+│   ├── argo-cd/
+│   ├── cert-manager/
+│   ├── ingress-nginx/
+│   ├── metallb/
+│   ├── app-of-apps/
+\`\`\`
+
+Each module contains a Helm chart to manage respective components. ArgoCD automates deployments, enabling self-healing and automatic synchronization.
+
+## Ansible Usage
+Ansible is used for operational tasks, including:
+- Configuring cluster nodes.
+- Applying security policies.
+- Performing updates and maintenance tasks.
+
+## Monitoring and Observability
+Currently, monitoring is planned with **Prometheus** and **Grafana**, providing insights into:
+- Cluster resource utilization.
+- Application performance.
+- Alerting mechanisms.
+
+Future plans include integrating centralized logging solutions like Loki.
+
+## Future Plans
+- Expanding cluster with additional worker nodes.
+- Implementing CI/CD pipelines for automated deployments.
+- Enhancing security with RBAC policies and secrets management.
+- Improved observability with monitoring and logging integrations.
+
+## Vision
+The goal of this project is to establish a scalable, reproducible Kubernetes environment showcasing the benefits of Infrastructure as Code and GitOps. Through continuous improvements, it aims to serve as an example for deploying production-ready cloud infrastructure efficiently.
+    `
+  },
+  {
     id: "rustique",
     title: "Rustique - Python Collections with Rust Performance",
     description: "A Python library built using Rust and PyO3 that provides performance-optimized alternatives to Python's built-in List and Dict types.",

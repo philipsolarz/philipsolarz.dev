@@ -11,7 +11,7 @@ export default function LandingPage() {
   const [isTypingDone, setIsTypingDone] = useState(false);
 
   return (
-    <div className="relative min-h-screen bg-background font-mono h-screen w-screen">
+    <div className="relative min-h-screen font-mono h-screen w-screen">
       {/* <ParticleBackground /> */}
       <main className="relative flex min-h-screen flex-col items-center justify-center p-4 text-center">
         <div className="space-y-6">

@@ -31,7 +31,7 @@ export default function LandingPage() {
             <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
               <ReactTyped
                 strings={[
-                  "Platform Engineer • Software Developer • Problem Solver",
+                  "Software Engineer • Developer • Problem Solver",
                 ]}
                 typeSpeed={20}
                 showCursor={false}

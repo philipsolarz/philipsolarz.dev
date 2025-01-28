@@ -11,7 +11,7 @@ const spaceMono = Space_Mono({
 
 export const metadata: Metadata = {
   title: "Philip Solarz - Software Engineer",
-  description: "Personal portfolio of Philip Solarz, Platform Engineer and Software Developer",
+  description: "Personal portfolio of Philip Solarz, Software Engineer and Developer",
 }
 
 export default function RootLayout({
